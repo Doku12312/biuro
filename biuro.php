@@ -28,5 +28,24 @@
                 </tr>
             </table>
         </aside>
+        <main>
+            <h2>W tym roku jedziemy do...</h2>
+            <?php foreach($obrazy as $obraz): ?>
+                <img src="<?= $obraz['nazwaPliku'] ?>" alt="<?= $obraz['podpis'] ?>" title="<?= $obraz['podpis'] ?>" />
+            <?php endforeach; ?>
+        </main>
+        <aside class="right">
+            <h2>Kontakt</h2>
+            <a href="mailto:biuro@wycieczki.pl">napisz do nas</a>
+            <p>telefon: 444555666</p>
+        </aside>
+    </div>
+    <section class="data">
+        <h3>W poprzednich latach byliśmy...</h3>
+        <ol>
+            <?php foreach($wycieczki as $wycieczka): ?>
+                <li>Dnia <?= $wycieczka['dataWyjazdu'] ?> pojechaliśmy do <?= $wycieczka['cel'] ?></li>
+            <?php endforeach ?>
+        </ol>
 </body>
 </html>

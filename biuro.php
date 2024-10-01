@@ -1,3 +1,18 @@
+<?php
+$db = mysqli_connect('localhost', 'root', '', 'podroze');
+
+
+
+$q = "SELECT nazwaPliku, podpis FROM zdjecia ORDER BY podpis";
+$r = mysqli_query($db, $q);
+$obrazy = mysqli_fetch_all($r, MYSQLI_BOTH);
+
+$q = "SELECT cel, dataWyjazdu FROM wycieczki WHERE dostepna = 0";
+$r = mysqli_query($db, $q);
+$wycieczki = mysqli_fetch_all($r, MYSQLI_BOTH);
+
+mysqli_close($db);
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -47,5 +62,9 @@
                 <li>Dnia <?= $wycieczka['dataWyjazdu'] ?> pojechaliśmy do <?= $wycieczka['cel'] ?></li>
             <?php endforeach ?>
         </ol>
+           </section>
+    <footer>
+        <p>Stronę wykonał: Dominik kuchnowski</p>
+    </footer>
 </body>
 </html>
